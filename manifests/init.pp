@@ -44,5 +44,20 @@
 #
 class was_hiera_wrapper {
 
+  class { '::hiera':
+    hierarchy       => [
+      'host/%{::domain}/%{::hostname}',
+      'role/common/%{system_role}',
+      'role/%{::system_role}/%{::system_env}',
+      'domain/%{::domain}',
+      'global/global',
+    ],
+    datadir         => '/etc/puppet/data/master',
+    backends        => ['yaml', 'puppet'],
+    eyaml           => true,
+    eyaml_extension => 'yaml',
+    extra_config    => ':puppet::datasource: params',
+    merge_behavior  => 'deeper',
+  }
 
 }
