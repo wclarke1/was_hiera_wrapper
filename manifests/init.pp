@@ -1,5 +1,5 @@
 # Class: was_hiera_wrapper
-# ===========================
+# ========================
 #
 # Full description of class was_hiera_wrapper here.
 #
